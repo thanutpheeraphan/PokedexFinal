@@ -1,12 +1,19 @@
 package com.example.pokedex_kotlin_final.Model
 
 
-data class APiResponse(
-    val name : String,
+data class APIResponse(
+    val count: Int,
+    val results: List<Results>
+
+)
+
+data class Results(
+    val name: String,
     val url: String
 )
 
-data class pokemon(
+
+data class Pokemon(
     val name: String,
     val id : Int,
     val height: Int,
@@ -14,21 +21,23 @@ data class pokemon(
     val base_experience: Int,
     val types : List<Types>,
     val moves: List<Moves>,
-    val sprites: List<Sprites>
+    val sprites: Sprites
 
 )
 data class Types(
-    val type : List<Typename>
+    val type : Type_name
 )
-data class Typename(
-    val type_name: String
+
+data class Type_name(
+    val name: String
 )
 
 data class Moves(
-    val move: List<Movename>
+   val move: Move
 )
-data class Movename(
-    val move_name: String
+
+data class Move(
+    val name: String
 )
 
 data class Sprites(
