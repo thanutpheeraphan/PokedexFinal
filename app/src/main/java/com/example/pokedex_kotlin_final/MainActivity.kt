@@ -2,6 +2,7 @@ package com.example.pokedex_kotlin_final
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.util.Log.d
 import android.view.Menu
@@ -27,7 +28,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         val retrofit = RetrofitClientInstance.retrofitInstance?.create(APIService::class.java)
 
         retrofit!!.getAllPokemon().enqueue(object : Callback<APIResponse> {
@@ -45,6 +45,13 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+
+        swipe_refresh_layout.setOnRefreshListener {
+            Handler().postDelayed({
+                pokemonAdapter.notifyDataSetChanged()
+                swipe_refresh_layout.isRefreshing = false
+            }, 1500)
+        }
 
 
     }

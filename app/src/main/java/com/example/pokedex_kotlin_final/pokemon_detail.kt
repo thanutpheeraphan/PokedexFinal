@@ -22,11 +22,13 @@ class pokemon_detail : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pokemon_detail)
-        //shiny_switch.isChecked = false
+        val actionbar = supportActionBar
         val id = intent.getStringExtra("target_pokemon_id")
         val retrofit = RetrofitClientInstance.retrofitInstance?.create(APIService::class.java)
         retrofit!!.getPokemon(id).enqueue(object : Callback<Pokemon> {
             override fun onResponse(call: Call<Pokemon>, response: Response<Pokemon>) {
+                actionbar!!.title =response.body()!!.name.toUpperCase()
+                actionbar.setDisplayHomeAsUpEnabled(true)
                 println("check: "+ response.body()!!.base_experience.toString())
                 d("thabeyrn","check: ${response.body()!!.base_experience}")
                 shiny_switch.setOnCheckedChangeListener{_, isChecked ->
@@ -60,6 +62,10 @@ class pokemon_detail : AppCompatActivity() {
 
 
 
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
 
@@ -100,7 +106,7 @@ class pokemon_detail : AppCompatActivity() {
 
             override fun onFailure(call: Call<PokemonInfo>, t: Throwable) {
                 t.printStackTrace()
-               
+
 
             }
 

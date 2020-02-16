@@ -53,7 +53,7 @@
         android:id="@+id/pokemon_get_base_exp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="104dp"
+        android:layout_marginStart="76dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="@+id/pokemon_base_exp"
         app:layout_constraintTop_toTopOf="@+id/pokemon_base_exp" />
@@ -261,11 +261,11 @@
 
     <TextView
         android:id="@+id/pokemon_base_exp"
-        android:layout_width="95dp"
-        android:layout_height="19dp"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
         android:layout_marginTop="28dp"
 
-        android:text="Base experience"
+        android:text="Base exp"
         app:layout_constraintStart_toStartOf="@+id/pokemon_name"
         app:layout_constraintTop_toTopOf="@+id/pokemon_name" />
 
