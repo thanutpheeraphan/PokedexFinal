@@ -21,9 +21,22 @@ data class Pokemon(
     val base_experience: Int,
     val types : List<Types>,
     val moves: List<Moves>,
-    val sprites: Sprites
+    val sprites: Sprites,
+    val stats: List<Stats>,
+    val species: Species
 
 )
+
+data class Species(
+    val name: String,
+    val url: String
+)
+data class Stats(
+    val base_stat : Int
+
+
+)
+
 data class Types(
     val type : Type_name
 )
@@ -43,4 +56,16 @@ data class Move(
 data class Sprites(
     val front_default : String,
     val front_shiny : String
+)
+
+data class Search_Model(
+    val name: String
+)
+
+data class PokemonInfo(
+    val flavor_text_entries : List<Flavors>
+)
+
+data class Flavors(
+    val flavor_text: String
 )

@@ -4,6 +4,8 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -12,7 +14,9 @@ import com.example.pokedex_kotlin_final.R
 import com.example.pokedex_kotlin_final.pokemon_detail
 import kotlinx.android.synthetic.main.pokemon_layout.view.*
 
-class PokemonListAdapter(private val pokemon_list:List<Results>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+
+class PokemonListAdapter(private val pokemon_list:List<Results>):  RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return PokemonViewHolder(
             LayoutInflater.from(parent.context).inflate(
@@ -26,6 +30,7 @@ class PokemonListAdapter(private val pokemon_list:List<Results>): RecyclerView.A
     override fun getItemCount(): Int {
         return pokemon_list.size
     }
+
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when(holder){
@@ -44,7 +49,9 @@ class PokemonListAdapter(private val pokemon_list:List<Results>): RecyclerView.A
     }
 
 
+
 }
+
 
 class PokemonViewHolder constructor(itemView: View): RecyclerView.ViewHolder(itemView){
     val pokemon_name = itemView.pokemon_name
