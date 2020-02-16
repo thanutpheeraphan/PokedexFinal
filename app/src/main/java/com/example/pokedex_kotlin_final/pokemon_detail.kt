@@ -88,12 +88,19 @@ class pokemon_detail : AppCompatActivity() {
         val retrofit = RetrofitClientInstance.retrofitInstance?.create(APIService::class.java)
         retrofit!!.getPokemonInfo(id_index).enqueue(object : Callback<PokemonInfo> {
             override fun onResponse(call: Call<PokemonInfo>, response: Response<PokemonInfo>) {
-                pokemon_get_description.text = response.body()!!.flavor_text_entries[1].flavor_text
+                val language_size = response.body()!!.flavor_text_entries.size
+                for (i in 0..language_size){
+                    if(response.body()!!.flavor_text_entries[i].language.name == "en"){
+                        pokemon_get_description.text = response.body()!!.flavor_text_entries[i].flavor_text
+                        break
+                    }
+                }
+
             }
 
             override fun onFailure(call: Call<PokemonInfo>, t: Throwable) {
                 t.printStackTrace()
-                d("thabeyrn","onFailure")
+               
 
             }
 

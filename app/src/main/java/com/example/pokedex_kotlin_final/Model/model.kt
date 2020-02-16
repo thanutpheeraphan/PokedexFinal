@@ -67,5 +67,9 @@ data class PokemonInfo(
 )
 
 data class Flavors(
-    val flavor_text: String
+    val flavor_text: String,
+    val language: Language
+)
+data class Language(
+    val name: String
 )
