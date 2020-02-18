@@ -206,13 +206,16 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="299dp"
-        android:layout_height="200dp"
+        android:layout_width="259dp"
+        android:layout_height="132dp"
         android:layout_marginTop="84dp"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/pokemon_types">
+        app:layout_constraintTop_toTopOf="@+id/pokemon_types"
+        app:layout_constraintVertical_bias="1.0">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_moves"
@@ -238,8 +241,10 @@
         android:text="Moves"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
-        app:layout_constraintHorizontal_bias="0.517"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout" />
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/pokemon_types"
+        app:layout_constraintVertical_bias="0.908" />
 
     <Switch
         android:id="@+id/shiny_switch"
@@ -295,12 +300,13 @@
         android:text="Description    "
         app:layout_constraintBottom_toTopOf="@+id/pokemon_get_description"
         app:layout_constraintEnd_toEndOf="@+id/pokemon_get_description"
-        app:layout_constraintStart_toStartOf="@+id/pokemon_get_description" />
+        app:layout_constraintStart_toStartOf="@+id/pokemon_get_description"
+        app:layout_constraintTop_toBottomOf="@+id/shiny_switch" />
 
     <TextView
         android:id="@+id/pokemon_get_description"
         android:layout_width="200dp"
-        android:layout_height="186dp"
+        android:layout_height="126dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="28dp"

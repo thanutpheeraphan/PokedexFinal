@@ -32,14 +32,14 @@ class MainActivity : AppCompatActivity() {
 
         retrofit!!.getAllPokemon().enqueue(object : Callback<APIResponse> {
             override fun onResponse(call: Call<APIResponse>, response: Response<APIResponse>) {
-                d("thabeyrn","check: ${response.body()!!.count}")
+                d("show","onResponse")
                 showData(response.body()!!)
 
 
             }
 
             override fun onFailure(call: Call<APIResponse>, t: Throwable) {
-                d("thabeyrn","onFailure")
+                d("show","onFailure")
 
 
             }
@@ -71,14 +71,11 @@ class MainActivity : AppCompatActivity() {
         val searchView = item.actionView as SearchView
         searchView.setOnQueryTextListener(object : OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-
                 return false
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 return false
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
 

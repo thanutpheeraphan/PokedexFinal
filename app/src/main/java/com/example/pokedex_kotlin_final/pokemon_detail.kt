@@ -27,10 +27,9 @@ class pokemon_detail : AppCompatActivity() {
         val retrofit = RetrofitClientInstance.retrofitInstance?.create(APIService::class.java)
         retrofit!!.getPokemon(id).enqueue(object : Callback<Pokemon> {
             override fun onResponse(call: Call<Pokemon>, response: Response<Pokemon>) {
+                d("show","onResponse")
                 actionbar!!.title =response.body()!!.name.toUpperCase()
                 actionbar.setDisplayHomeAsUpEnabled(true)
-                println("check: "+ response.body()!!.base_experience.toString())
-                d("thabeyrn","check: ${response.body()!!.base_experience}")
                 shiny_switch.setOnCheckedChangeListener{_, isChecked ->
                     if(isChecked){
                         Glide.with(this@pokemon_detail)
@@ -52,8 +51,9 @@ class pokemon_detail : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<Pokemon>, t: Throwable) {
+                d("show","onFailure")
                 t.printStackTrace()
-                d("thabeyrn","onFailure")
+
 
             }
 
